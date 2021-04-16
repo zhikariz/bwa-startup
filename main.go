@@ -12,13 +12,13 @@ import (
 )
 
 func main() {
-	router := gin.Default()
-	db := helper.SetupDb()
-
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
+	router := gin.Default()
+	db := helper.SetupDb()
 
 	router.Use(func(c *gin.Context) {
 		c.Set("db", db)
@@ -30,6 +30,7 @@ func main() {
 	// Service
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
+
 	// Handler
 	userHandler := handler.NewUserHandler(userService, authService)
 
