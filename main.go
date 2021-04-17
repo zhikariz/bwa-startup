@@ -30,6 +30,7 @@ func main() {
 
 	// Repository
 	userRepository := user.NewRepository(db)
+	// campaignRepository := campaign.NewRepository(db)
 	// Service
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
