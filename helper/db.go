@@ -15,6 +15,6 @@ func SetupDb() *gorm.DB {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	db.AutoMigrate(&user.User{}, &campaign.Campaign{})
+	db.AutoMigrate(&user.User{}, &campaign.Campaign{}, &campaign.CampaignImage{})
 	return db
 }
