@@ -1,0 +1,28 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        ".git",
+        "node_modules/**/node_modules"
+    ],
+    "verbose": true,
+    "scripts": {
+        "start": "nodemon --exec go run main.go --SIGTERM"
+    },
+    "execMap": {
+        "js": "node --harmony"
+    },
+    "events": {
+        "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+    },
+    "watch": [
+        "test/fixtures/",
+        "test/samples/"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "js,json",
+    "dependencies": {
+        "nodemon": "^2.0.7"
+    }
+}
