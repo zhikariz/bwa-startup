@@ -2,6 +2,7 @@ package helper
 
 import (
 	"bwa-startup/campaign"
+	"bwa-startup/transaction"
 	"bwa-startup/user"
 	"os"
 
@@ -15,6 +16,6 @@ func SetupDb() *gorm.DB {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	db.AutoMigrate(&user.User{}, &campaign.Campaign{}, &campaign.CampaignImage{})
+	db.AutoMigrate(&user.User{}, &campaign.Campaign{}, &campaign.CampaignImage{}, &transaction.Transaction{})
 	return db
 }
